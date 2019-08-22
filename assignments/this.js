@@ -2,8 +2,11 @@
 * in your own words. explain the four principle for the "this" keyword below.
 *
 * 1. Window Binding : If you invoke a function that isnt specified by a 'this' then it will default to the window object
+
 * 2. Implicit Binding : Is the most common rule and references when a function is invoked, look to the left of the dot and that should be what the 'this' keyword is referencing.
+
 * 3. New Binding : You invoke this function with 'new' keyword the 'this' keyword inside that function is then bound to the object being constructed
+
 * 4. Explicit Binding : Is telling the  of call (pass in an argument one by one), apply (pass in an as an array), and bind (is like call but it returns a new function that you invoke later rather than immediately). 
 *
 * write out a code example of each explanation above
@@ -25,7 +28,7 @@ window.name = 'Mac';
 myName();
 
 //cannot log my real name Dominique because i invoked it without a specified 'this'
-//instead I set the window object name to 'Mac' and now can see how it grabs the window object instead
+//instead I set the window object to a name to 'Mac' and now can see how it grabs the window object instead
 
 
 
@@ -53,9 +56,13 @@ petImplicit.sayName(); //sayName is referecing the 'this' inside the pet functio
 const Animal = function(color, name, type){
     this.color = color;
     this.name = name;
-    this.type = type
+    this.type = type,
+    this.getInfo = function(){
+        console.log(`The new Animal info is as follows: ${this.color}, ${this.name}, ${this.type}`);
+    }
 };
 const puppy = new Animal('rhone', 'mango', 'GSP');
+    puppy.getInfo();
 
 
 
